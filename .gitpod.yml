@@ -6,5 +6,4 @@ tasks:
     init: |
       lando start
       lando composer install
-      lando drush si -y --account-pass=admin --site-name='gitpod_lando' demo_umami
       gp preview $(gp url $(lando info --format=json | jq -r ".[0].urls[1]" | sed -e 's#http://localhost:\(\)#\1#'))
